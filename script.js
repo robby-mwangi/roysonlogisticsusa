@@ -1,66 +1,27 @@
-javascript
-// =========================================================
-// ROYSON LOGISTICS LLC
-// WhatsApp Contact Form
-// =========================================================
-
-
-// Get the contact form
 const contactForm = document.querySelector(".contact-form");
 
-
-// Royson Logistics WhatsApp number
-const whatsappNumber = "14695869434";
-
-
-// Listen for form submission
-contactForm.addEventListener("submit", function (event) {
-
-    // Stop the page from refreshing
+contactForm.addEventListener("submit", function(event) {
     event.preventDefault();
 
+    const name = document.getElementById("name").value;
+    const company = document.getElementById("company").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const message = document.getElementById("message").value;
 
-    // Get information from the form
-    const name = document.getElementById("name").value.trim();
+    const whatsappNumber = "14695869434";
 
-    const company = document.getElementById("company").value.trim();
-
-    const email = document.getElementById("email").value.trim();
-
-    const phone = document.getElementById("phone").value.trim();
-
-    const message = document.getElementById("message").value.trim();
-
-
-    // Create the WhatsApp message
     const whatsappMessage =
-        `Hello Royson Logistics,
+        "Hello Royson Logistics,%0A%0A" +
+        "I would like to request a transportation quote.%0A%0A" +
+        "Name: " + name + "%0A" +
+        "Company: " + company + "%0A" +
+        "Email: " + email + "%0A" +
+        "Phone: " + phone + "%0A%0A" +
+        "Shipment Details:%0A" + message;
 
-I would like to inquire about your transportation services.
-
-Customer Details:
-Name: ${name}
-Company: ${company || "Not provided"}
-Email: ${email}
-Phone: ${phone || "Not provided"}
-
-Shipment Details:
-${message}
-
-Thank you.`;
-
-    
-    // Convert the message into a format WhatsApp can understand
-    const encodedMessage = encodeURIComponent(whatsappMessage);
-
-
-    // Create WhatsApp link
     const whatsappURL =
-        `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        "https://wa.me/" + whatsappNumber + "?text=" + whatsappMessage;
 
-
-    // Open WhatsApp
     window.open(whatsappURL, "_blank");
-
 });
-
