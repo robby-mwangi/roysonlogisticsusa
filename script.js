@@ -1,27 +1,39 @@
 const contactForm = document.querySelector(".contact-form");
 
 contactForm.addEventListener("submit", function(event) {
+
     event.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const company = document.getElementById("company").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
-    const message = document.getElementById("message").value;
+    const name = document.getElementById("name").value.trim();
+    const company = document.getElementById("company").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-    const whatsappNumber = "14695869434";
+    const subject = "New Transportation Quote Request";
 
-    const whatsappMessage =
-        "Hello Royson Logistics,%0A%0A" +
-        "I would like to request a transportation quote.%0A%0A" +
-        "Name: " + name + "%0A" +
-        "Company: " + company + "%0A" +
-        "Email: " + email + "%0A" +
-        "Phone: " + phone + "%0A%0A" +
-        "Shipment Details:%0A" + message;
+    const body = `
+Hello Royson Logistics,
 
-    const whatsappURL =
-        "https://wa.me/" + whatsappNumber + "?text=" + whatsappMessage;
+I would like to request a transportation quote.
 
-    window.open(whatsappURL, "_blank");
+CUSTOMER DETAILS
+Name: ${name}
+Company: ${company || "Not provided"}
+Email: ${email}
+Phone: ${phone || "Not provided"}
+
+SHIPMENT DETAILS
+${message}
+
+Thank you.
+`;
+
+    const mailtoLink =
+        "mailto:roysonllc@gmail.com" +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+
+    window.location.href = mailtoLink;
+
 });
