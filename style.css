@@ -598,107 +598,127 @@ ul {
 }
 
 
-/* =========================
-   11. SERVICE AREA
-   ========================= */
+/* ================= SERVICES ================= */
 
-.service-area {
-    background: #ffffff;
+.services-section {
+    background: #f5f7fa;
 }
 
-.service-area-container {
+.services-grid {
     display: grid;
-
-    grid-template-columns: 1.4fr 1fr;
-
-    gap: 60px;
-
-    align-items: center;
-}
-
-.service-area-container > div:first-child > p:not(.section-label) {
-    color: #687585;
-
-    max-width: 600px;
-}
-
-.service-area-box {
-    padding: 40px;
-
-    background: #f3f7fa;
-
-    border-left: 5px solid #1769aa;
-
-    border-radius: 5px;
-}
-
-.service-area-box h3 {
-    font-size: 1.3rem;
-
-    margin-bottom: 10px;
-}
-
-.service-area-box p {
-    color: #5f6d7b;
-}
-
-.service-area-box .small-note {
-    margin-top: 15px;
-
-    font-size: 0.8rem;
-
-    color: #8995a1;
-}
-
-
-/* =========================
-   12. QUOTE CTA
-   ========================= */
-
-.quote-section {
-    padding: 70px 0;
-
-    background: #1769aa;
-
-    color: #ffffff;
-}
-
-.quote-container {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+    margin-top: 50px;
 }
 
-.quote-text .section-label {
-    color: #b9def5;
-}
 
-.quote-text h2 {
-    color: #ffffff;
-}
+/* Service Card */
 
-.quote-text h2 span {
-    color: #ffffff;
-}
-
-.quote-text p:last-child {
-    color: #d8eaf6;
-}
-
-.quote-section .primary-button {
+.service-card {
     background: #ffffff;
-
-    color: #1769aa;
-
-    white-space: nowrap;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #e5e9ef;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.quote-section .primary-button:hover {
-    background: #eaf4fb;
+
+/* Hover Effect */
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Service Image */
+
+.service-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: #e9edf2;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+
+/* Image Zoom on Hover */
+
+.service-card:hover .service-image img {
+    transform: scale(1.06);
+}
+
+
+/* Service Content */
+
+.service-card-content {
+    padding: 28px 25px 30px;
+}
+
+.service-card-content h3 {
+    font-size: 21px;
+    color: #102a43;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.service-card-content p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #627d98;
+    margin: 0;
+}
+
+
+/* ================= TABLET ================= */
+
+@media (max-width: 992px) {
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .service-image {
+        height: 210px;
+    }
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .service-image {
+        height: 230px;
+    }
+
+    .service-card-content {
+        padding: 24px 20px 26px;
+    }
+
+    .service-card-content h3 {
+        font-size: 19px;
+    }
+
+    .service-card-content p {
+        font-size: 14px;
+    }
+
 }
 
 
