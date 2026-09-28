@@ -30,7 +30,7 @@ Thank you.
 `;
 
     const mailtoLink =
-        "mailto:roysonllc@gmail.com" +
+        "mailto:roysonlllc@gmail.com" +
         "?subject=" + encodeURIComponent(subject) +
         "&body=" + encodeURIComponent(body);
 
